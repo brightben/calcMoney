@@ -1,0 +1,7 @@
+{
+    "initialMoney":0,
+    "savedPerMonth":20000,
+    "raisePerYear":0.05,
+    "year":20,
+    "ROA":0.06
+}
