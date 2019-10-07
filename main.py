@@ -22,8 +22,11 @@ with open(CONFIG_FILE, 'r') as f:
 def main():
     logging.info("Calculating")
     calcfunc = calcFunc(CONFIG)
-    finalMoney = calcfunc.calcTotalMoney()
-    logging.info("Total Money: %.3fw" % (finalMoney/10000))
+    #finalMoney = calcfunc.calcTotalMoney()
+    input=' 5GB'
+    finalMoney = calcfunc.convert_size_to_bytes(input)
+    logging.info(finalMoney)
+    #logging.info("Total Money: %.3fw" % (finalMoney/10000))
 
 if __name__ == '__main__':
     main()
