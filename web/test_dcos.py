@@ -5,7 +5,6 @@ import logging
 import logging_utility
 import json
 import time
-from dcos_base_utility import DCOSBaseUtility
 from testcase_utility import (load_driver, get_url_title_on_web)
 from marathon_utility import list_app
 from config_struct import ServiceConfigData
@@ -38,7 +37,6 @@ class DCOSTestCase(unittest.TestCase):
     def setUp(self):
         logging.info('Start functional test: test_dcos ...')
         logging.info('SET UP ')
-        self.dcos_utility = DCOSBaseUtility()
         self.service_config = ServiceConfigData(name='dcostestcase',
                                                 port_number=['80',
                                                              CONFIG['DCOS_TEST_PORT_LIST'][0]],
