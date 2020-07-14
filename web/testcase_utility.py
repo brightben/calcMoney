@@ -53,25 +53,3 @@ def is_url_ok(url):
         return 0
     else:
         return 1
-
-def delete_all_service():
-    """ delete all service by restful api """
-    logger.info("Deleting all service by restful api")
-    command = 'curl -s -X GET -H \"Content-Type:application/json\" '+ \
-              CONFIG['MANAGER_SERVER_URL']+ '/region/'
-    logger.debug("curl url: " + command)
-    result = os.popen(command).read()
-    logger.debug("curl result:")
-    logger.debug(result)
-    region_id = json.loads(result)[0]['_id']
-    logger.debug("Region id: " + region_id)
-    command = 'curl -s -X GET -H \"Content-Type:application/json\" '+ \
-              CONFIG['MANAGER_SERVER_URL']+ '/region/'+region_id+'/service/'
-    logger.debug("curl url: " + command)
-    result = os.popen(command).read()
-    logger.debug("curl result:")
-    logger.debug(result)
-    service_list = json.loads(result)
-    for service in service_list:
-        command = 'curl -s -X DELETE -H \"Content-Type:application/json\" '+ \
-                  CONFIG['MANAGER_SERVER_URL']+ '/region/'+region_id+'/service/'+service['_id']

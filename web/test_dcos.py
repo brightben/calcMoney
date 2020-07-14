@@ -6,7 +6,7 @@ import logging_utility
 import json
 import time
 from dcos_base_utility import DCOSBaseUtility
-from testcase_utility import (load_driver, get_url_title_on_web, delete_all_service)
+from testcase_utility import (load_driver, get_url_title_on_web)
 from marathon_utility import list_app
 from config_struct import ServiceConfigData
 
@@ -33,7 +33,6 @@ class DCOSTestCase(unittest.TestCase):
         if self.driver is not None:
             self.driver.quit()
         logging.info('delete service')
-        delete_all_service()
         logging.info('End of functional test: test_dcos')
 
     def setUp(self):
